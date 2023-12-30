@@ -1,0 +1,34 @@
+Kubernetes - ReplicaSet-Service-:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+kubectl expose rs my-helloworld-rs  --type NodePort --port 80 --target-port 8080 --name np-rs-service   
+kubectl expose rs my-helloworld-rs  --type LoadBalancer--port 80 --target-port 8080 --name lb-rs-service
+
+--port expose Service port
+--target-port  Container Port
+
+kubectl get service
+kubectl get service --watch
+
+http://Node-IP:31026/hello
+http://LoadBalancer-IP/hello
+
+kubectl delete pod my-helloworld-rs-qfcz2
+kubectl get rs
+
+
+kubectl replace -f replicaset-demo.yml
+
+kubectl delete service lb-rs-service second-rs-service
+
+
+http://35.225.172.18/hello
+
+kubectl delete rs my-helloworld-rs
+kubectl get rs
+
+# Apply latest changes to ReplicaSet
+kubectl replace -f replicaset-demo.yml
+
+# Verify if new pods got created
+kubectl get pods -o wide

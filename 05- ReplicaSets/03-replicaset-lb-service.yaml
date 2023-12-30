@@ -1,0 +1,16 @@
+apiVersion: v1 
+kind: Service
+metadata: 
+  name: pod-lb-service
+  labels:
+    app: pod-lb-service
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: pod-replicaset
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      

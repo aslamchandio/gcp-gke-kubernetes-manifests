@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firt-deployment
+  labels:
+    app:  first-deployment
+
+spec:  
+  replicas: 3
+  selector:
+    matchLabels:
+      app: first-deployment
+      
+  template:
+    metadata:
+      name: first-deployment
+      labels:
+        app: first-deployment
+    spec:
+      containers:
+        - name: first-deployment
+          image: aslam24/nginx-web-fablesmaster:v1
+          ports:
+            - containerPort: 80    
+
+
+

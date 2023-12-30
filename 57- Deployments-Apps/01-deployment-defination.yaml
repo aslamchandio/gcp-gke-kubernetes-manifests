@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firt-deployment-jenkins
+  labels:
+    app:  first-deployment-jenkins
+
+spec:  
+  replicas: 3
+  selector:
+    matchLabels:
+      app: first-deployment-jenkins
+      
+  template:
+    metadata:
+      name: first-deployment-jenkins
+      labels:
+        app: first-deployment-jenkins
+    spec:
+      containers:
+        - name: first-deployment-jenkins
+          image: jenkins/jenkins:latest
+          ports:
+            - containerPort: 8080  
+
+
+

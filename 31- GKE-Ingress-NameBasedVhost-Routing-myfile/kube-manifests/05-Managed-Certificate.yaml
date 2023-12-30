@@ -1,0 +1,9 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert-for-ingress
+spec:
+  domains:
+    - app.kloudlab.site
+    - app1.kloudlab.site
+    - app2.kloudlab.site

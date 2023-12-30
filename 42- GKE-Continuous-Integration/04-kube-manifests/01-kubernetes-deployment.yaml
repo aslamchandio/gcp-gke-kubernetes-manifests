@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: #Dictionary
+  name: myapp1-deployment
+spec: # Dictionary
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp1
+  template:  
+    metadata: # Dictionary
+      name: myapp1-pod
+      labels: # Dictionary
+        app: myapp1  # Key value pairs
+    spec:
+      containers: # List
+        - name: myapp1-container
+          #image: us-central1-docker.pkg.dev/chandio-project-373722/myapps-artifacts-repo/myapp1:36467af
+          image: us-central1-docker.pkg.dev/chandio-project-373722/myapps-artifacts-repo/myapp1:8a6d523
+          ports: 
+            - containerPort: 80  
+    
